@@ -1,0 +1,15 @@
+dev rows: 1470 (origins 1998-2002, targets <= 2007)
+  naive    MASE sectors 4.0931  total 3.6373
+  trend    MASE sectors 11.1532  total 4.6643
+  damped   MASE sectors 3.4389  total 2.5300
+results/dev/xgb_d3_n300.pkl XGB-E:3.7643/2.9134 XGB-D:3.7510/2.9609 XGB-H:3.7784/2.8982 XGB-P:3.7239/2.8857
+results/dev/xgb_d3_n600.pkl XGB-E:3.8188/2.9401 XGB-D:3.7975/3.0091 XGB-H:3.8279/2.9310 XGB-P:3.7696/2.9352
+results/dev/xgb_d5_n300.pkl XGB-E:3.7345/2.8466 XGB-D:3.6941/2.9119 XGB-H:3.7028/2.8597 XGB-P:3.6604/2.8457
+results/dev/xgb_d5_n600.pkl XGB-E:3.7477/2.8619 XGB-D:3.7041/2.8986 XGB-H:3.7072/2.8525 XGB-P:3.6659/2.8380
+results/dev/nnS_lam0.1.pkl NN-S:3.6670/2.9808
+results/dev/nnS_lam1.0.pkl NN-S:3.7098/3.0281
+results/dev/nnS_lam10.0.pkl NN-S:4.9188/5.1880
+results/dev/nnU_w128_p0.1.pkl NN-U:3.8784/3.1186 NN-P:3.8542/3.0646
+results/dev/nnU_w128_p0.3.pkl NN-U:3.6484/2.8768 NN-P:3.6470/2.9004
+results/dev/nnU_w64_p0.1.pkl NN-U:3.9291/3.1644 NN-P:3.9152/3.0986
+results/dev/nnU_w64_p0.3.pkl NN-U:3.6685/3.0403 NN-P:3.6743/2.9943

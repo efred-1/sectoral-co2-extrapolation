@@ -1,0 +1,869 @@
+[
+ {
+  "file": "energy_matched_panel_42countries_1965-2024.csv",
+  "folder": "03_Cleaned_data",
+  "path": "data/panel.csv",
+  "title": "Energy-matched country panel",
+  "about": "One row per country and year, 1965–2024, for the 42 economies in the study. Fossil CO₂ by source is paired with fuel consumption for the same country-year. Countries are kept when all core variables (five CO₂ sources, coal, oil and gas consumption, population) are present in at least 40 of the 55 years 1970–2024. Aggregates (regions, income groups) were removed by keeping only entities with a country ISO code.",
+  "n_rows": 2520,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name as used by Our World in Data",
+    "source": "Our World in Data",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "iso_code",
+    "type": "text",
+    "unit": "–",
+    "description": "ISO 3166-1 alpha-3 country code",
+    "source": "Our World in Data",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Calendar year",
+    "source": "–",
+    "range": "1965 to 2024",
+    "missing": 0
+   },
+   {
+    "column": "population",
+    "type": "number",
+    "unit": "persons",
+    "description": "Population",
+    "source": "Our World in Data population series (various sources, 2024)",
+    "range": "6.408e+04 to 1.451e+09",
+    "missing": 0
+   },
+   {
+    "column": "co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Total fossil CO₂ emissions excluding land-use change. Includes the small 'other industry' category, so it can exceed the sum of the five source columns. The study's national total is the sum of the five sources, not this column",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0.02565 to 1.229e+04",
+    "missing": 0
+   },
+   {
+    "column": "coal_co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "CO₂ from coal combustion",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 8886",
+    "missing": 61
+   },
+   {
+    "column": "oil_co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "CO₂ from oil combustion",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 2584",
+    "missing": 0
+   },
+   {
+    "column": "gas_co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "CO₂ from natural gas combustion",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 1748",
+    "missing": 36
+   },
+   {
+    "column": "flaring_co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "CO₂ from gas flaring",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 84.52",
+    "missing": 127
+   },
+   {
+    "column": "cement_co2",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "CO₂ from cement production (process emissions)",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 828.7",
+    "missing": 0
+   },
+   {
+    "column": "coal_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Primary energy consumption of coal",
+    "source": "Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",
+    "range": "0 to 2.56e+04",
+    "missing": 140
+   },
+   {
+    "column": "oil_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Primary energy consumption of oil",
+    "source": "Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",
+    "range": "0.097 to 1.122e+04",
+    "missing": 140
+   },
+   {
+    "column": "gas_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Primary energy consumption of natural gas",
+    "source": "Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",
+    "range": "0 to 9022",
+    "missing": 140
+   },
+   {
+    "column": "renewables_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Primary energy from renewables, substitution method. Set to 0 where blank in a year in which the country's fossil-fuel rows are reported",
+    "source": "Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",
+    "range": "0 to 8470",
+    "missing": 140
+   },
+   {
+    "column": "nuclear_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Primary energy from nuclear, substitution method. Set to 0 where blank in a year in which the country's fossil-fuel rows are reported",
+    "source": "Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",
+    "range": "0 to 2258",
+    "missing": 140
+   },
+   {
+    "column": "primary_energy_consumption",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Total primary energy consumption",
+    "source": "Our World in Data series combining Energy Institute and U.S. EIA data",
+    "range": "0.097 to 4.899e+04",
+    "missing": 140
+   },
+   {
+    "column": "low_carbon_share",
+    "type": "number",
+    "unit": "fraction (0–1)",
+    "description": "(renewables_consumption + nuclear_consumption) / primary_energy_consumption",
+    "source": "Derived in src/build_data.py",
+    "range": "0 to 0.6883",
+    "missing": 140
+   },
+   {
+    "column": "ef_coal",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Implied emission factor of coal, coal_co2 / coal_consumption. Blank where consumption < 1 TWh or CO₂ < 0.1 Mt. Values outside the IPCC range are kept as reported (Section 2.3 of the manuscript)",
+    "source": "Derived in src/build_data.py (Eq. 1 of the manuscript)",
+    "range": "0.1114 to 0.7646",
+    "missing": 499
+   },
+   {
+    "column": "ef_oil",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Implied emission factor of oil, oil_co2 / oil_consumption. Same validity rule. Values outside the IPCC range are kept as reported; the maximum, Kuwait 1991, most likely reflects the oil-well fires of that year, which the inventory counts as oil CO₂",
+    "source": "Derived in src/build_data.py (Eq. 1)",
+    "range": "0.005151 to 11.23",
+    "missing": 150
+   },
+   {
+    "column": "ef_gas",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Implied emission factor of gas, gas_co2 / gas_consumption. Same validity rule",
+    "source": "Derived in src/build_data.py (Eq. 1)",
+    "range": "0.004009 to 1.193",
+    "missing": 254
+   }
+  ]
+ },
+ {
+  "file": "panel_countries.csv",
+  "folder": "03_Cleaned_data",
+  "path": "data/panel_countries.csv",
+  "title": "Panel countries",
+  "about": "The 42 economies in the panel, sorted by fossil CO₂ in 2022 (Table A.1 of the manuscript).",
+  "n_rows": 42,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "Our World in Data",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "iso_code",
+    "type": "text",
+    "unit": "–",
+    "description": "ISO 3166-1 alpha-3 country code",
+    "source": "Our World in Data",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "complete_years",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Number of years in 1970–2024 (of 55) with every core variable present",
+    "source": "Derived in src/build_data.py",
+    "range": "40 to 55",
+    "missing": 0
+   },
+   {
+    "column": "co2_2022_mt",
+    "type": "number",
+    "unit": "Mt CO₂",
+    "description": "Total fossil CO₂ in 2022 (column co2 of the panel file)",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "6.608 to 1.171e+04",
+    "missing": 0
+   },
+   {
+    "column": "share_world_2022_pct",
+    "type": "number",
+    "unit": "%",
+    "description": "Share of world fossil CO₂ in 2022",
+    "source": "Derived in src/build_data.py",
+    "range": "0.01761 to 31.21",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "emission_factor_audit.csv",
+  "folder": "03_Cleaned_data",
+  "path": "data/ef_diagnostic.csv",
+  "title": "Emission-factor audit",
+  "about": "Each valid implied emission factor, 1970–2024, compared with the IPCC 2006 default range (95% interval bounds of Vol. 2, Ch. 1, Table 1.4, converted from kg CO₂/TJ by × 3.6 × 10⁻⁶). Coal: coking coal lower bound to lignite upper bound; oil: ethane lower to residual fuel oil upper; gas: natural gas lower to upper. Basis of Fig. 3 and Section 2.3 of the manuscript.",
+  "n_rows": 6233,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Calendar year",
+    "source": "–",
+    "range": "1970 to 2024",
+    "missing": 0
+   },
+   {
+    "column": "ef",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Implied emission factor (as in ef_coal, ef_oil and ef_gas of the panel file)",
+    "source": "Derived in src/build_data.py",
+    "range": "0.004009 to 11.23",
+    "missing": 0
+   },
+   {
+    "column": "fuel",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil or gas",
+    "source": "–",
+    "range": "3 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "band_lo",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Lower bound of the IPCC 2006 range for the fuel",
+    "source": "IPCC 2006 Guidelines",
+    "range": "0.1955 to 0.3143",
+    "missing": 0
+   },
+   {
+    "column": "band_hi",
+    "type": "number",
+    "unit": "t CO₂ MWh⁻¹",
+    "description": "Upper bound of the IPCC 2006 range for the fuel. A value above it means more CO₂ is reported than the reported fuel could release",
+    "source": "IPCC 2006 Guidelines",
+    "range": "0.2099 to 0.414",
+    "missing": 0
+   },
+   {
+    "column": "band_class",
+    "type": "text",
+    "unit": "–",
+    "description": "within, above_upper or below_lower",
+    "source": "Derived in src/build_data.py",
+    "range": "3 distinct values",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_COMB-P_country_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_COMB-P.csv",
+  "title": "COMB-P extrapolation by country and source",
+  "about": "COMB-P: main method of the paper: equal-weight combination of the damped trend and XGBoost, with the post-forecast stoichiometric correction. Origin 2024, horizons 1–6 years. Intervals are calibrated on the same model's test-period forecasts (origins 2008–2019) for the same source and horizon.",
+  "n_rows": 1512,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "h",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Horizon from the 2024 origin, 1–6",
+    "source": "–",
+    "range": "1 to 6",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring, cement, or total (sum of the five)",
+    "source": "–",
+    "range": "6 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Point projection",
+    "source": "src/project.py",
+    "range": "0 to 1.382e+04",
+    "missing": 0
+   },
+   {
+    "column": "lo90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Lower bound of the 90% split-conformal prediction interval (floored at 0)",
+    "source": "src/project.py",
+    "range": "0 to 1.124e+04",
+    "missing": 0
+   },
+   {
+    "column": "hi90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Upper bound of the 90% split-conformal prediction interval",
+    "source": "src/project.py",
+    "range": "0.01898 to 1.802e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed value in 2024, the origin year",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 1.21e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_COMB-P_panel_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_panel_COMB-P.csv",
+  "title": "COMB-P extrapolation, 42-country panel totals",
+  "about": "Sum over the 42 countries of the COMB-P source projections.",
+  "n_rows": 30,
+  "cols": [
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring or cement",
+    "source": "–",
+    "range": "5 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Projection summed over the 42 countries",
+    "source": "src/project.py",
+    "range": "354 to 1.59e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed 2024 value summed over the 42 countries",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "351.5 to 1.409e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_COMB-P_fuel_energy_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_energy_COMB-P.csv",
+  "title": "COMB-P fuel-energy extrapolation",
+  "about": "Fuel-energy projections that go with the COMB-P CO₂ projections. They satisfy CO₂ = EF × E with the 2024 emission factor wherever the fuel is present.",
+  "n_rows": 252,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "coal_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected coal consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "0 to 2.912e+04",
+    "missing": 0
+   },
+   {
+    "column": "oil_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected oil consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "15.19 to 9877",
+    "missing": 0
+   },
+   {
+    "column": "gas_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected gas consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "3.439 to 9345",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_XGB-P_country_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_XGB-P.csv",
+  "title": "XGB-P extrapolation by country and source",
+  "about": "XGB-P: alternative: XGBoost with the post-forecast correction. Origin 2024, horizons 1–6 years. Intervals are calibrated on the same model's test-period forecasts (origins 2008–2019) for the same source and horizon.",
+  "n_rows": 1512,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "h",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Horizon from the 2024 origin, 1–6",
+    "source": "–",
+    "range": "1 to 6",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring, cement, or total (sum of the five)",
+    "source": "–",
+    "range": "6 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Point projection",
+    "source": "src/project.py",
+    "range": "0 to 1.302e+04",
+    "missing": 0
+   },
+   {
+    "column": "lo90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Lower bound of the 90% split-conformal prediction interval (floored at 0)",
+    "source": "src/project.py",
+    "range": "0 to 1.125e+04",
+    "missing": 0
+   },
+   {
+    "column": "hi90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Upper bound of the 90% split-conformal prediction interval",
+    "source": "src/project.py",
+    "range": "0.02149 to 1.783e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed value in 2024, the origin year",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 1.21e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_XGB-P_panel_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_panel_XGB-P.csv",
+  "title": "XGB-P extrapolation, 42-country panel totals",
+  "about": "Sum over the 42 countries of the XGB-P source projections.",
+  "n_rows": 30,
+  "cols": [
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring or cement",
+    "source": "–",
+    "range": "5 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Projection summed over the 42 countries",
+    "source": "src/project.py",
+    "range": "356.8 to 1.513e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed 2024 value summed over the 42 countries",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "351.5 to 1.409e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_XGB-P_fuel_energy_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_energy_XGB-P.csv",
+  "title": "XGB-P fuel-energy extrapolation",
+  "about": "Fuel-energy projections that go with the XGB-P CO₂ projections. They satisfy CO₂ = EF × E with the 2024 emission factor wherever the fuel is present.",
+  "n_rows": 252,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "coal_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected coal consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "0 to 2.715e+04",
+    "missing": 0
+   },
+   {
+    "column": "oil_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected oil consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "15.28 to 9806",
+    "missing": 0
+   },
+   {
+    "column": "gas_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected gas consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "3.539 to 9402",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_damped-P_country_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_damped-P.csv",
+  "title": "damped-P extrapolation by country and source",
+  "about": "damped-P: alternative: damped trend with the post-forecast correction. Origin 2024, horizons 1–6 years. Intervals are calibrated on the same model's test-period forecasts (origins 2008–2019) for the same source and horizon.",
+  "n_rows": 1512,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "h",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Horizon from the 2024 origin, 1–6",
+    "source": "–",
+    "range": "1 to 6",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring, cement, or total (sum of the five)",
+    "source": "–",
+    "range": "6 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Point projection",
+    "source": "src/project.py",
+    "range": "0 to 1.469e+04",
+    "missing": 0
+   },
+   {
+    "column": "lo90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Lower bound of the 90% split-conformal prediction interval (floored at 0)",
+    "source": "src/project.py",
+    "range": "0 to 1.115e+04",
+    "missing": 0
+   },
+   {
+    "column": "hi90",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Upper bound of the 90% split-conformal prediction interval",
+    "source": "src/project.py",
+    "range": "0.02023 to 2.17e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed value in 2024, the origin year",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "0 to 1.21e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_damped-P_panel_by_source_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_panel_damped-P.csv",
+  "title": "damped-P extrapolation, 42-country panel totals",
+  "about": "Sum over the 42 countries of the damped-P source projections.",
+  "n_rows": 30,
+  "cols": [
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "source",
+    "type": "text",
+    "unit": "–",
+    "description": "coal, oil, gas, flaring or cement",
+    "source": "–",
+    "range": "5 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "proj",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Projection summed over the 42 countries",
+    "source": "src/project.py",
+    "range": "351.9 to 1.675e+04",
+    "missing": 0
+   },
+   {
+    "column": "base_2024",
+    "type": "number",
+    "unit": "Mt CO₂ yr⁻¹",
+    "description": "Observed 2024 value summed over the 42 countries",
+    "source": "Global Carbon Budget 2025, via Our World in Data CO₂ dataset",
+    "range": "351.5 to 1.409e+04",
+    "missing": 0
+   }
+  ]
+ },
+ {
+  "file": "Extrapolation_damped-P_fuel_energy_2025-2030.csv",
+  "folder": "08_Scenarios",
+  "path": "results/projections_energy_damped-P.csv",
+  "title": "damped-P fuel-energy extrapolation",
+  "about": "Fuel-energy projections that go with the damped-P CO₂ projections. They satisfy CO₂ = EF × E with the 2024 emission factor wherever the fuel is present.",
+  "n_rows": 252,
+  "cols": [
+   {
+    "column": "country",
+    "type": "text",
+    "unit": "–",
+    "description": "Country name",
+    "source": "–",
+    "range": "42 distinct values",
+    "missing": 0
+   },
+   {
+    "column": "year",
+    "type": "integer",
+    "unit": "yr",
+    "description": "Target year, 2025–2030",
+    "source": "–",
+    "range": "2025 to 2030",
+    "missing": 0
+   },
+   {
+    "column": "coal_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected coal consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "0 to 3.123e+04",
+    "missing": 0
+   },
+   {
+    "column": "oil_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected oil consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "15 to 9949",
+    "missing": 0
+   },
+   {
+    "column": "gas_twh",
+    "type": "number",
+    "unit": "TWh yr⁻¹",
+    "description": "Projected gas consumption, after the post-forecast correction",
+    "source": "src/project.py",
+    "range": "3.115 to 9288",
+    "missing": 0
+   }
+  ]
+ }
+]

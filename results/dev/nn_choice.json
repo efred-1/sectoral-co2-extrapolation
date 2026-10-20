@@ -1,0 +1,55 @@
+{
+ "width": 128,
+ "dropout": 0.3,
+ "grid": [
+  {
+   "file": "results/dev/nnU_w128_p0.1.pkl",
+   "width": 128,
+   "dropout": 0.1,
+   "mase": 3.87842024410773,
+   "mase_total": 3.1185529825075236
+  },
+  {
+   "file": "results/dev/nnU_w128_p0.3.pkl",
+   "width": 128,
+   "dropout": 0.3,
+   "mase": 3.6483565654253507,
+   "mase_total": 2.876833371609753
+  },
+  {
+   "file": "results/dev/nnU_w64_p0.1.pkl",
+   "width": 64,
+   "dropout": 0.1,
+   "mase": 3.9290556980826294,
+   "mase_total": 3.1643639182860195
+  },
+  {
+   "file": "results/dev/nnU_w64_p0.3.pkl",
+   "width": 64,
+   "dropout": 0.3,
+   "mase": 3.66850061980333,
+   "mase_total": 3.040313416111304
+  }
+ ],
+ "lam": 0.1,
+ "lam_grid": [
+  {
+   "file": "results/dev/nnS_lam0.1.pkl",
+   "lam": 0.1,
+   "mase": 3.666950101794893,
+   "mase_total": 2.9807890449561327
+  },
+  {
+   "file": "results/dev/nnS_lam1.0.pkl",
+   "lam": 1.0,
+   "mase": 3.7098353291068573,
+   "mase_total": 3.0280989906057263
+  },
+  {
+   "file": "results/dev/nnS_lam10.0.pkl",
+   "lam": 10.0,
+   "mase": 4.918790177893191,
+   "mase_total": 5.18796720452064
+  }
+ ]
+}

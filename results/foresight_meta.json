@@ -1,0 +1,32 @@
+{
+ "producers": [
+  "Algeria",
+  "Australia",
+  "Brazil",
+  "Canada",
+  "Colombia",
+  "Denmark",
+  "Egypt",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Kazakhstan",
+  "Kuwait",
+  "Malaysia",
+  "Mexico",
+  "Netherlands",
+  "New Zealand",
+  "Norway",
+  "Oman",
+  "Peru",
+  "Qatar",
+  "Russia",
+  "Saudi Arabia",
+  "Venezuela"
+ ],
+ "ipcc_default_t_per_mwh": {
+  "coal": 0.3406,
+  "oil": 0.2639,
+  "gas": 0.202
+ }
+}

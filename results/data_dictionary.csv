@@ -1,0 +1,84 @@
+folder,file,column,type,unit,description,source,observed_range,missing_values,rows_in_file
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,country,text,–,Country name as used by Our World in Data,Our World in Data,42 distinct values,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,iso_code,text,–,ISO 3166-1 alpha-3 country code,Our World in Data,42 distinct values,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,year,integer,yr,Calendar year,–,1965 to 2024,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,population,number,persons,Population,"Our World in Data population series (various sources, 2024)",6.408e+04 to 1.451e+09,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,co2,number,Mt CO₂ yr⁻¹,"Total fossil CO₂ emissions excluding land-use change. Includes the small 'other industry' category, so it can exceed the sum of the five source columns. The study's national total is the sum of the five sources, not this column","Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0.02565 to 1.229e+04,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,coal_co2,number,Mt CO₂ yr⁻¹,CO₂ from coal combustion,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 8886,61,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,oil_co2,number,Mt CO₂ yr⁻¹,CO₂ from oil combustion,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 2584,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,gas_co2,number,Mt CO₂ yr⁻¹,CO₂ from natural gas combustion,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 1748,36,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,flaring_co2,number,Mt CO₂ yr⁻¹,CO₂ from gas flaring,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 84.52,127,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,cement_co2,number,Mt CO₂ yr⁻¹,CO₂ from cement production (process emissions),"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 828.7,0,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,coal_consumption,number,TWh yr⁻¹,Primary energy consumption of coal,"Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",0 to 2.56e+04,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,oil_consumption,number,TWh yr⁻¹,Primary energy consumption of oil,"Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",0.097 to 1.122e+04,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,gas_consumption,number,TWh yr⁻¹,Primary energy consumption of natural gas,"Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",0 to 9022,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,renewables_consumption,number,TWh yr⁻¹,"Primary energy from renewables, substitution method. Set to 0 where blank in a year in which the country's fossil-fuel rows are reported","Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",0 to 8470,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,nuclear_consumption,number,TWh yr⁻¹,"Primary energy from nuclear, substitution method. Set to 0 where blank in a year in which the country's fossil-fuel rows are reported","Energy Institute Statistical Review of World Energy 2025, via Our World in Data energy dataset",0 to 2258,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,primary_energy_consumption,number,TWh yr⁻¹,Total primary energy consumption,Our World in Data series combining Energy Institute and U.S. EIA data,0.097 to 4.899e+04,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,low_carbon_share,number,fraction (0–1),(renewables_consumption + nuclear_consumption) / primary_energy_consumption,Derived in src/build_data.py,0 to 0.6883,140,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,ef_coal,number,t CO₂ MWh⁻¹,"Implied emission factor of coal, coal_co2 / coal_consumption. Blank where consumption < 1 TWh or CO₂ < 0.1 Mt. Values outside the IPCC range are kept as reported (Section 2.3 of the manuscript)",Derived in src/build_data.py (Eq. 1 of the manuscript),0.1114 to 0.7646,499,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,ef_oil,number,t CO₂ MWh⁻¹,"Implied emission factor of oil, oil_co2 / oil_consumption. Same validity rule. Values outside the IPCC range are kept as reported; the maximum, Kuwait 1991, most likely reflects the oil-well fires of that year, which the inventory counts as oil CO₂",Derived in src/build_data.py (Eq. 1),0.005151 to 11.23,150,2520
+03_Cleaned_data,energy_matched_panel_42countries_1965-2024.csv,ef_gas,number,t CO₂ MWh⁻¹,"Implied emission factor of gas, gas_co2 / gas_consumption. Same validity rule",Derived in src/build_data.py (Eq. 1),0.004009 to 1.193,254,2520
+03_Cleaned_data,panel_countries.csv,country,text,–,Country name,Our World in Data,42 distinct values,0,42
+03_Cleaned_data,panel_countries.csv,iso_code,text,–,ISO 3166-1 alpha-3 country code,Our World in Data,42 distinct values,0,42
+03_Cleaned_data,panel_countries.csv,complete_years,integer,yr,Number of years in 1970–2024 (of 55) with every core variable present,Derived in src/build_data.py,40 to 55,0,42
+03_Cleaned_data,panel_countries.csv,co2_2022_mt,number,Mt CO₂,Total fossil CO₂ in 2022 (column co2 of the panel file),"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",6.608 to 1.171e+04,0,42
+03_Cleaned_data,panel_countries.csv,share_world_2022_pct,number,%,Share of world fossil CO₂ in 2022,Derived in src/build_data.py,0.01761 to 31.21,0,42
+03_Cleaned_data,emission_factor_audit.csv,country,text,–,Country name,–,42 distinct values,0,6233
+03_Cleaned_data,emission_factor_audit.csv,year,integer,yr,Calendar year,–,1970 to 2024,0,6233
+03_Cleaned_data,emission_factor_audit.csv,ef,number,t CO₂ MWh⁻¹,"Implied emission factor (as in ef_coal, ef_oil and ef_gas of the panel file)",Derived in src/build_data.py,0.004009 to 11.23,0,6233
+03_Cleaned_data,emission_factor_audit.csv,fuel,text,–,"coal, oil or gas",–,3 distinct values,0,6233
+03_Cleaned_data,emission_factor_audit.csv,band_lo,number,t CO₂ MWh⁻¹,Lower bound of the IPCC 2006 range for the fuel,IPCC 2006 Guidelines,0.1955 to 0.3143,0,6233
+03_Cleaned_data,emission_factor_audit.csv,band_hi,number,t CO₂ MWh⁻¹,Upper bound of the IPCC 2006 range for the fuel. A value above it means more CO₂ is reported than the reported fuel could release,IPCC 2006 Guidelines,0.2099 to 0.414,0,6233
+03_Cleaned_data,emission_factor_audit.csv,band_class,text,–,"within, above_upper or below_lower",Derived in src/build_data.py,3 distinct values,0,6233
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,h,integer,yr,"Horizon from the 2024 origin, 1–6",–,1 to 6,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring, cement, or total (sum of the five)",–,6 distinct values,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Point projection,src/project.py,0 to 1.382e+04,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,lo90,number,Mt CO₂ yr⁻¹,Lower bound of the 90% split-conformal prediction interval (floored at 0),src/project.py,0 to 1.124e+04,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,hi90,number,Mt CO₂ yr⁻¹,Upper bound of the 90% split-conformal prediction interval,src/project.py,0.01898 to 1.802e+04,0,1512
+08_Scenarios,Extrapolation_COMB-P_country_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,"Observed value in 2024, the origin year","Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 1.21e+04,0,1512
+08_Scenarios,Extrapolation_COMB-P_panel_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,30
+08_Scenarios,Extrapolation_COMB-P_panel_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring or cement",–,5 distinct values,0,30
+08_Scenarios,Extrapolation_COMB-P_panel_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Projection summed over the 42 countries,src/project.py,354 to 1.59e+04,0,30
+08_Scenarios,Extrapolation_COMB-P_panel_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,Observed 2024 value summed over the 42 countries,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",351.5 to 1.409e+04,0,30
+08_Scenarios,Extrapolation_COMB-P_fuel_energy_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,252
+08_Scenarios,Extrapolation_COMB-P_fuel_energy_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,252
+08_Scenarios,Extrapolation_COMB-P_fuel_energy_2025-2030.csv,coal_twh,number,TWh yr⁻¹,"Projected coal consumption, after the post-forecast correction",src/project.py,0 to 2.912e+04,0,252
+08_Scenarios,Extrapolation_COMB-P_fuel_energy_2025-2030.csv,oil_twh,number,TWh yr⁻¹,"Projected oil consumption, after the post-forecast correction",src/project.py,15.19 to 9877,0,252
+08_Scenarios,Extrapolation_COMB-P_fuel_energy_2025-2030.csv,gas_twh,number,TWh yr⁻¹,"Projected gas consumption, after the post-forecast correction",src/project.py,3.439 to 9345,0,252
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,h,integer,yr,"Horizon from the 2024 origin, 1–6",–,1 to 6,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring, cement, or total (sum of the five)",–,6 distinct values,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Point projection,src/project.py,0 to 1.302e+04,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,lo90,number,Mt CO₂ yr⁻¹,Lower bound of the 90% split-conformal prediction interval (floored at 0),src/project.py,0 to 1.125e+04,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,hi90,number,Mt CO₂ yr⁻¹,Upper bound of the 90% split-conformal prediction interval,src/project.py,0.02149 to 1.783e+04,0,1512
+08_Scenarios,Extrapolation_XGB-P_country_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,"Observed value in 2024, the origin year","Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 1.21e+04,0,1512
+08_Scenarios,Extrapolation_XGB-P_panel_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,30
+08_Scenarios,Extrapolation_XGB-P_panel_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring or cement",–,5 distinct values,0,30
+08_Scenarios,Extrapolation_XGB-P_panel_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Projection summed over the 42 countries,src/project.py,356.8 to 1.513e+04,0,30
+08_Scenarios,Extrapolation_XGB-P_panel_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,Observed 2024 value summed over the 42 countries,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",351.5 to 1.409e+04,0,30
+08_Scenarios,Extrapolation_XGB-P_fuel_energy_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,252
+08_Scenarios,Extrapolation_XGB-P_fuel_energy_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,252
+08_Scenarios,Extrapolation_XGB-P_fuel_energy_2025-2030.csv,coal_twh,number,TWh yr⁻¹,"Projected coal consumption, after the post-forecast correction",src/project.py,0 to 2.715e+04,0,252
+08_Scenarios,Extrapolation_XGB-P_fuel_energy_2025-2030.csv,oil_twh,number,TWh yr⁻¹,"Projected oil consumption, after the post-forecast correction",src/project.py,15.28 to 9806,0,252
+08_Scenarios,Extrapolation_XGB-P_fuel_energy_2025-2030.csv,gas_twh,number,TWh yr⁻¹,"Projected gas consumption, after the post-forecast correction",src/project.py,3.539 to 9402,0,252
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,h,integer,yr,"Horizon from the 2024 origin, 1–6",–,1 to 6,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring, cement, or total (sum of the five)",–,6 distinct values,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Point projection,src/project.py,0 to 1.469e+04,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,lo90,number,Mt CO₂ yr⁻¹,Lower bound of the 90% split-conformal prediction interval (floored at 0),src/project.py,0 to 1.115e+04,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,hi90,number,Mt CO₂ yr⁻¹,Upper bound of the 90% split-conformal prediction interval,src/project.py,0.02023 to 2.17e+04,0,1512
+08_Scenarios,Extrapolation_damped-P_country_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,"Observed value in 2024, the origin year","Global Carbon Budget 2025, via Our World in Data CO₂ dataset",0 to 1.21e+04,0,1512
+08_Scenarios,Extrapolation_damped-P_panel_by_source_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,30
+08_Scenarios,Extrapolation_damped-P_panel_by_source_2025-2030.csv,source,text,–,"coal, oil, gas, flaring or cement",–,5 distinct values,0,30
+08_Scenarios,Extrapolation_damped-P_panel_by_source_2025-2030.csv,proj,number,Mt CO₂ yr⁻¹,Projection summed over the 42 countries,src/project.py,351.9 to 1.675e+04,0,30
+08_Scenarios,Extrapolation_damped-P_panel_by_source_2025-2030.csv,base_2024,number,Mt CO₂ yr⁻¹,Observed 2024 value summed over the 42 countries,"Global Carbon Budget 2025, via Our World in Data CO₂ dataset",351.5 to 1.409e+04,0,30
+08_Scenarios,Extrapolation_damped-P_fuel_energy_2025-2030.csv,country,text,–,Country name,–,42 distinct values,0,252
+08_Scenarios,Extrapolation_damped-P_fuel_energy_2025-2030.csv,year,integer,yr,"Target year, 2025–2030",–,2025 to 2030,0,252
+08_Scenarios,Extrapolation_damped-P_fuel_energy_2025-2030.csv,coal_twh,number,TWh yr⁻¹,"Projected coal consumption, after the post-forecast correction",src/project.py,0 to 3.123e+04,0,252
+08_Scenarios,Extrapolation_damped-P_fuel_energy_2025-2030.csv,oil_twh,number,TWh yr⁻¹,"Projected oil consumption, after the post-forecast correction",src/project.py,15 to 9949,0,252
+08_Scenarios,Extrapolation_damped-P_fuel_energy_2025-2030.csv,gas_twh,number,TWh yr⁻¹,"Projected gas consumption, after the post-forecast correction",src/project.py,3.115 to 9288,0,252

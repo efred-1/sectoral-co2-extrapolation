@@ -1,0 +1,57 @@
+{
+ "recorded_at": "2026-10-16T22:55:25",
+ "test_period_scored_before_this": false,
+ "basis": "development rows only: origins 1998-2002, targets <= 2007 (1,470 rows)",
+ "dev_mase_sectors_total": {
+  "naive": [
+   4.0931,
+   3.6373
+  ],
+  "damped": [
+   3.4389,
+   2.53
+  ],
+  "XGB-D": [
+   3.6941,
+   2.9119
+  ],
+  "XGB-P": [
+   3.6604,
+   2.8457
+  ],
+  "XGB-H": [
+   3.7028,
+   2.8597
+  ],
+  "NN-U (w128,p0.3)": [
+   3.6484,
+   2.8768
+  ],
+  "damped-H": [
+   3.3934,
+   2.5599
+  ],
+  "damped-P": [
+   3.3451,
+   2.4248
+  ],
+  "COMB": [
+   3.3488,
+   2.5039
+  ],
+  "COMB-P": [
+   3.3287,
+   2.4731
+  ],
+  "COMB-H": [
+   3.3373,
+   2.5236
+  ]
+ },
+ "decision": [
+  "Add stoichiometric variants of the damped trend (damped-H, damped-P) because the baseline also forecasts fuel energy.",
+  "Add an equal-weight combination COMB = mean log-growth of damped and XGB-D (CO2 and energy), with -H and -P variants.",
+  "Designate COMB-P as the proposed system (lowest dev MASE across sources). No combination weights are fitted.",
+  "XGB settings depth 5, 300 trees (lowest dev MASE for XGB-D)."
+ ]
+}
