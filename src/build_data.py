@@ -4,16 +4,17 @@ Inputs (both from Our World in Data):
   owid-co2-data.csv    -> Global Carbon Budget 2025 fossil CO2 by source (Mt)
   owid-energy-data.csv -> Energy Institute Statistical Review 2025 fuel consumption (TWh)
 
-Outputs (data/):
-  panel.csv            one row per country-year, 1965-2024, panel countries only
-  panel_countries.csv  country list with coverage statistics
-  ef_diagnostic.csv    implied emission factor per country-year-fuel with IPCC band class
+Outputs (cleaned_data/):
+  energy_matched_panel_42countries_1965-2024.csv  one row per country-year, 1965-2024, panel countries only
+  panel_countries.csv                             country list with coverage statistics
+  emission_factor_audit.csv                       implied emission factor per country-year-fuel with IPCC band class
 """
+import os
 import sys
 import numpy as np
 import pandas as pd
 
-DATA = "data"
+OUT = "cleaned_data"
 SECTORS = ["coal_co2", "oil_co2", "gas_co2", "flaring_co2", "cement_co2"]
 FUELS = ["coal", "oil", "gas"]
 ENERGY = ["coal_consumption", "oil_consumption", "gas_consumption",
@@ -35,6 +36,7 @@ C_MIN_MT = 0.1
 
 
 def main(co2_path, energy_path):
+    os.makedirs(OUT, exist_ok=True)
     C = pd.read_csv(co2_path)
     E = pd.read_csv(energy_path)
     C = C[C.iso_code.notna() & ~C.iso_code.str.startswith("OWID")]
@@ -62,7 +64,7 @@ def main(co2_path, energy_path):
         valid = (e >= E_MIN_TWH) & (co2 >= C_MIN_MT)
         P[f"ef_{f}"] = np.where(valid, co2 / e, np.nan)   # t CO2 per MWh = Mt per TWh
 
-    P.to_csv(f"{DATA}/panel.csv", index=False)
+    P.to_csv(f"{OUT}/energy_matched_panel_42countries_1965-2024.csv", index=False)
 
     # Country summary
     rows = []
@@ -72,7 +74,7 @@ def main(co2_path, energy_path):
                          co2_2022_mt=float(g24.co2.iloc[0]) if len(g24) else np.nan))
     S = pd.DataFrame(rows).sort_values("co2_2022_mt", ascending=False)
     S["share_world_2022_pct"] = 100 * S.co2_2022_mt / world.loc[2022]
-    S.to_csv(f"{DATA}/panel_countries.csv", index=False)
+    S.to_csv(f"{OUT}/panel_countries.csv", index=False)
 
     # Stoichiometric diagnostic on the panel, 1970-2024
     D = []
@@ -83,7 +85,7 @@ def main(co2_path, energy_path):
         sub["band_class"] = np.select([sub.ef > hi, sub.ef < lo], ["above_upper", "below_lower"], "within")
         D.append(sub)
     D = pd.concat(D, ignore_index=True)
-    D.to_csv(f"{DATA}/ef_diagnostic.csv", index=False)
+    D.to_csv(f"{OUT}/emission_factor_audit.csv", index=False)
 
     print(f"panel: {len(keep)} countries, {len(P)} country-years (1965-2024)")
     print(f"share of world fossil CO2 2022: {S.share_world_2022_pct.sum():.1f}%")

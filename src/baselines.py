@@ -34,7 +34,7 @@ def damped_path(y, hmax):
 
 def main():
     meta, X, T = pickle.load(open("results/samples.pkl", "rb"))
-    P = pd.read_csv("data/panel.csv").sort_values(["country", "year"])
+    P = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv").sort_values(["country", "year"])
     series = {}
     for country, g in P.groupby("country"):
         g = g.set_index("year")

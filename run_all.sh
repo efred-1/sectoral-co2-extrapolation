@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 mkdir -p results/dev results/full figs logs
 
 # 1. Data: energy-matched panel, country list, emission-factor diagnostic
-python3 -I src/build_data.py data/owid-co2-data.csv data/owid-energy-data.csv
+python3 -I src/build_data.py raw_data/owid-co2-data.csv raw_data/owid-energy-data.csv
 
 # 2. Samples (country x origin x horizon) and MASE scales
 python3 -I src/make_samples.py
@@ -43,7 +43,7 @@ python3 -I src/evaluate.py
 python3 -I src/supplementary.py   # weighted correction and energy-to-CO2 conversion test (added after test evaluation)
 python3 -I src/project.py COMB-P XGB-P damped-P
 python3 -I src/fig_design.py
-python3 -I src/fig_data.py data/ne_110m_countries.geojson
+python3 -I src/fig_data.py raw_data/ne_110m_countries.geojson
 python3 -I src/fig_results.py
 python3 -I src/fig_extra.py COMB-P
 

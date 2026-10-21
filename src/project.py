@@ -58,7 +58,7 @@ def damped_forecast(P, fm):
 def main():
     models = sys.argv[1:] or ["COMB-P", "XGB-P", "damped-P"]
     meta, X, T = load_samples()
-    P = pd.read_csv("data/panel.csv")
+    P = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv")
     fm, fX, c0, e0 = future_rows(P, ORIGIN, HS)
     fm = fm.reset_index(drop=True)
     print(f"projection rows: {len(fm)} ({fm.country.nunique()} countries)")

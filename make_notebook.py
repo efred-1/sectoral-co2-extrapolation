@@ -25,12 +25,12 @@ def fig(name, width=900):
     display(Image(filename=f"figs/{name}", width=width))""")
 
 md("## 1. Data and the stoichiometric audit")
-code("""panel = pd.read_csv("data/panel.csv")
-countries = pd.read_csv("data/panel_countries.csv")
+code("""panel = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv")
+countries = pd.read_csv("cleaned_data/panel_countries.csv")
 print(f"{countries.shape[0]} countries, {len(panel):,} country-years; share of world fossil CO2 in 2022: "
       f"{countries.share_world_2022_pct.sum():.1f}%")
 countries.sort_values("co2_2022_mt", ascending=False).head(10)""")
-code("""D = pd.read_csv("data/ef_diagnostic.csv")
+code("""D = pd.read_csv("cleaned_data/emission_factor_audit.csv")
 (D.groupby("fuel").band_class.value_counts(normalize=True).unstack() * 100).round(1)""")
 code("""fig("fig2_panel.png"); fig("fig3_ef_diagnostic.png"); fig("figS1_gas_above_max.png", 600)""")
 

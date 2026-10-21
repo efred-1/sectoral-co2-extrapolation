@@ -1,10 +1,10 @@
 # Data dictionary
 
-Every column of the cleaned data (`data/`) and of the projection files (`results/projections_*.csv`). Files are comma-separated, UTF-8, with one header row; a blank cell is a missing value. Ranges and missing counts are computed from the files by `src/make_data_dictionary.py`.
+Every column of the cleaned data (`cleaned_data/`) and of the projection files (`results/projections_*.csv`). Files are comma-separated, UTF-8, with one header row; a blank cell is a missing value. Ranges and missing counts are computed from the files by `src/make_data_dictionary.py`.
 
 Units: CO₂ in million tonnes per year (Mt CO₂ yr⁻¹); energy in terawatt-hours per year (TWh yr⁻¹); emission factors in t CO₂ MWh⁻¹, which equals Mt CO₂ per TWh.
 
-## `data/panel.csv` — Energy-matched country panel
+## `cleaned_data/energy_matched_panel_42countries_1965-2024.csv` — Energy-matched country panel
 
 One row per country and year, 1965–2024, for the 42 economies in the study. Fossil CO₂ by source is paired with fuel consumption for the same country-year. Countries are kept when all core variables (five CO₂ sources, coal, oil and gas consumption, population) are present in at least 40 of the 55 years 1970–2024. Aggregates (regions, income groups) were removed by keeping only entities with a country ISO code.
 
@@ -33,7 +33,7 @@ Rows: 2,520.
 | `ef_oil` | t CO₂ MWh⁻¹ | Implied emission factor of oil, oil_co2 / oil_consumption. Same validity rule. Values outside the IPCC range are kept as reported; the maximum, Kuwait 1991, most likely reflects the oil-well fires of that year, which the inventory counts as oil CO₂ | Derived in src/build_data.py (Eq. 1) | 0.005151 to 11.23 | 150 |
 | `ef_gas` | t CO₂ MWh⁻¹ | Implied emission factor of gas, gas_co2 / gas_consumption. Same validity rule | Derived in src/build_data.py (Eq. 1) | 0.004009 to 1.193 | 254 |
 
-## `data/panel_countries.csv` — Panel countries
+## `cleaned_data/panel_countries.csv` — Panel countries
 
 The 42 economies in the panel, sorted by fossil CO₂ in 2022 (Table A.1 of the manuscript).
 
@@ -47,7 +47,7 @@ Rows: 42.
 | `co2_2022_mt` | Mt CO₂ | Total fossil CO₂ in 2022 (column co2 of the panel file) | Global Carbon Budget 2025, via Our World in Data CO₂ dataset | 6.608 to 1.171e+04 | 0 |
 | `share_world_2022_pct` | % | Share of world fossil CO₂ in 2022 | Derived in src/build_data.py | 0.01761 to 31.21 | 0 |
 
-## `data/ef_diagnostic.csv` — Emission-factor audit
+## `cleaned_data/emission_factor_audit.csv` — Emission-factor audit
 
 Each valid implied emission factor, 1970–2024, compared with the IPCC 2006 default range (95% interval bounds of Vol. 2, Ch. 1, Table 1.4, converted from kg CO₂/TJ by × 3.6 × 10⁻⁶). Coal: coking coal lower bound to lignite upper bound; oil: ethane lower to residual fuel oil upper; gas: natural gas lower to upper. Basis of Fig. 3 and Section 2.3 of the manuscript.
 

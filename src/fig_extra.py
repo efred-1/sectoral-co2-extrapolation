@@ -64,7 +64,7 @@ plt.close(fig)
 
 # ---- projections ----
 pr = pd.read_csv(f"results/projections_{MODEL}.csv")
-P = pd.read_csv("data/panel.csv")
+P = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv")
 src = ["coal", "oil", "gas", "flaring", "cement"]
 countries = ["China", "United States", "India", "Russia", "Saudi Arabia", "Iran"]
 fig = plt.figure(figsize=(7.4, 6.4))

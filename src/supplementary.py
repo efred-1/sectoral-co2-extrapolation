@@ -134,8 +134,8 @@ def main():
     pd.DataFrame(summ).to_csv("results/weighted_summary.csv", index=False)
 
     # ---- S2: perfect-energy-foresight conversion ----
-    Pn = pd.read_csv("data/panel.csv")
-    En = pd.read_csv("data/owid-energy-data.csv", usecols=["country", "year", "oil_production", "gas_production",
+    Pn = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv")
+    En = pd.read_csv("raw_data/owid-energy-data.csv", usecols=["country", "year", "oil_production", "gas_production",
                                                             "oil_consumption", "gas_consumption"])
     prod = En[En.year.between(2009, 2019)].groupby("country")[["oil_production", "gas_production",
                                                                "oil_consumption", "gas_consumption"]].mean()

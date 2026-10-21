@@ -2,7 +2,7 @@
  {
   "file": "energy_matched_panel_42countries_1965-2024.csv",
   "folder": "03_Cleaned_data",
-  "path": "data/panel.csv",
+  "path": "cleaned_data/energy_matched_panel_42countries_1965-2024.csv",
   "title": "Energy-matched country panel",
   "about": "One row per country and year, 1965–2024, for the 42 economies in the study. Fossil CO₂ by source is paired with fuel consumption for the same country-year. Countries are kept when all core variables (five CO₂ sources, coal, oil and gas consumption, population) are present in at least 40 of the 55 years 1970–2024. Aggregates (regions, income groups) were removed by keeping only entities with a country ISO code.",
   "n_rows": 2520,
@@ -192,7 +192,7 @@
  {
   "file": "panel_countries.csv",
   "folder": "03_Cleaned_data",
-  "path": "data/panel_countries.csv",
+  "path": "cleaned_data/panel_countries.csv",
   "title": "Panel countries",
   "about": "The 42 economies in the panel, sorted by fossil CO₂ in 2022 (Table A.1 of the manuscript).",
   "n_rows": 42,
@@ -247,7 +247,7 @@
  {
   "file": "emission_factor_audit.csv",
   "folder": "03_Cleaned_data",
-  "path": "data/ef_diagnostic.csv",
+  "path": "cleaned_data/emission_factor_audit.csv",
   "title": "Emission-factor audit",
   "about": "Each valid implied emission factor, 1970–2024, compared with the IPCC 2006 default range (95% interval bounds of Vol. 2, Ch. 1, Table 1.4, converted from kg CO₂/TJ by × 3.6 × 10⁻⁶). Coal: coking coal lower bound to lignite upper bound; oil: ethane lower to residual fuel oil upper; gas: natural gas lower to upper. Basis of Fig. 3 and Section 2.3 of the manuscript.",
   "n_rows": 6233,

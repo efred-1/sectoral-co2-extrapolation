@@ -9,9 +9,9 @@ from matplotlib.colors import LinearSegmentedColormap, BoundaryNorm
 sys.path.insert(0, "src")
 from style import FUEL_COLORS, FUEL_LABELS, INK2, MUTED, SEQ_BLUE, GRID, panel_label  # noqa: E402
 
-P = pd.read_csv("data/panel.csv")
-S = pd.read_csv("data/panel_countries.csv")
-D = pd.read_csv("data/ef_diagnostic.csv")
+P = pd.read_csv("cleaned_data/energy_matched_panel_42countries_1965-2024.csv")
+S = pd.read_csv("cleaned_data/panel_countries.csv")
+D = pd.read_csv("cleaned_data/emission_factor_audit.csv")
 world = gpd.read_file(sys.argv[1])
 
 # ---------------- Fig 2: coverage map + fuel composition ----------------

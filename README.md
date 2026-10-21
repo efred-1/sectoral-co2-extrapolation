@@ -10,12 +10,13 @@ The study pairs Global Carbon Budget 2025 emissions by source (coal, oil, gas, f
 
 | File / folder | Contents |
 |---|---|
-| `reproduce_and_explore.ipynb` | Executed notebook that walks through the data, the emission-factor audit, the development-period choices, every main result and the projections, from the saved results. Built by `make_notebook.py`. |
-| `data/panel.csv` | **Cleaned data.** Energy-matched panel: 42 economies × 60 years (1965–2024), 2,520 rows. CO₂ by source (Mt CO₂/yr), fuel consumption (TWh/yr), low-carbon share and implied emission factors (t CO₂/MWh). |
-| `data/panel_countries.csv` | The 42 countries, their complete years and their share of world fossil CO₂ in 2022. |
-| `data/ef_diagnostic.csv` | Every implied emission factor, 1970–2024, classed against the IPCC 2006 range (within, above, below). |
-| `data/owid-*.csv`, `data/ne_110m_countries.geojson` | Raw inputs the code starts from: the Our World in Data CO₂ and energy datasets with their codebooks, and Natural Earth country outlines for the map. |
+| `cleaned_data/` | **The cleaned data.** |
+| `cleaned_data/energy_matched_panel_42countries_1965-2024.csv` | Energy-matched panel: 42 economies × 60 years (1965–2024), 2,520 rows. CO₂ by source (Mt CO₂/yr), fuel consumption (TWh/yr), low-carbon share and implied emission factors (t CO₂/MWh). |
+| `cleaned_data/panel_countries.csv` | The 42 countries, their complete years and their share of world fossil CO₂ in 2022. |
+| `cleaned_data/emission_factor_audit.csv` | Every implied emission factor, 1970–2024, classed against the IPCC 2006 range (within, above, below). |
 | `DATA_DICTIONARY.md` | Every column of the cleaned data and the projection files: meaning, unit, source, observed range and missing values. Also as `results/data_dictionary.csv`. |
+| `reproduce_and_explore.ipynb` | Executed notebook that walks through the data, the emission-factor audit, the development-period choices, every main result and the projections, from the saved results. Built by `make_notebook.py`. |
+| `raw_data/` | Raw inputs the cleaned data are built from: the Our World in Data CO₂ and energy datasets with their codebooks, and Natural Earth country outlines for the map. |
 | `src/` | All analysis code (pipeline below). |
 | `run_all.sh` | Reruns the whole study from the raw inputs. |
 | `results/*.csv` | Every result reported in the paper: accuracy by horizon and source, paired tests, robustness checks, prediction intervals, supplementary analyses and projections. |
@@ -34,7 +35,7 @@ pip install -r requirements.txt
 jupyter notebook reproduce_and_explore.ipynb
 ```
 
-The notebook reads the saved results and runs in a few seconds. Run it from the repository root so that it finds `data/`, `results/` and `figs/`.
+The notebook reads the saved results and runs in a few seconds. Run it from the repository root so that it finds `cleaned_data/`, `results/` and `figs/`.
 
 To rerun the whole study from the raw inputs:
 
@@ -44,7 +45,7 @@ To rerun the whole study from the raw inputs:
 
 This takes about 4–5 hours on two CPU cores, almost all of it for the neural networks; no GPU is needed. The steps are:
 
-1. `src/build_data.py` builds the panel and the emission-factor audit from the two Our World in Data files.
+1. `src/build_data.py` builds the cleaned data in `cleaned_data/` from the two Our World in Data files in `raw_data/`.
 2. `src/make_samples.py` builds the country × origin × horizon samples (49 features, log-growth targets) and the MASE scales.
 3. `src/baselines.py` fits the naive, short-run trend and damped-trend forecasts of CO₂ and fuel energy.
 4. `src/xgb_models.py`, `src/nn_models.py`, `src/score_dev.py` and `src/select_dev.py` tune the models on development forecasts only (origins 1998–2002, target years up to 2007).

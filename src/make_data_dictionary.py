@@ -14,7 +14,7 @@ MT = "Mt CO₂ yr⁻¹"
 TWH = "TWh yr⁻¹"
 
 FILES = [
-    dict(file="energy_matched_panel_42countries_1965-2024.csv", folder="03_Cleaned_data", path="data/panel.csv",
+    dict(file="energy_matched_panel_42countries_1965-2024.csv", folder="03_Cleaned_data", path="cleaned_data/energy_matched_panel_42countries_1965-2024.csv",
          title="Energy-matched country panel",
          about="One row per country and year, 1965–2024, for the 42 economies in the study. Fossil CO₂ by source "
                "is paired with fuel consumption for the same country-year. Countries are kept when all core "
@@ -54,7 +54,7 @@ FILES = [
              ("ef_gas", "number", "t CO₂ MWh⁻¹", "Implied emission factor of gas, gas_co2 / gas_consumption. Same "
               "validity rule", DER + " (Eq. 1)"),
          ]),
-    dict(file="panel_countries.csv", folder="03_Cleaned_data", path="data/panel_countries.csv",
+    dict(file="panel_countries.csv", folder="03_Cleaned_data", path="cleaned_data/panel_countries.csv",
          title="Panel countries",
          about="The 42 economies in the panel, sorted by fossil CO₂ in 2022 (Table A.1 of the manuscript).",
          cols=[
@@ -64,7 +64,7 @@ FILES = [
              ("co2_2022_mt", "number", "Mt CO₂", "Total fossil CO₂ in 2022 (column co2 of the panel file)", GCB),
              ("share_world_2022_pct", "number", "%", "Share of world fossil CO₂ in 2022", DER),
          ]),
-    dict(file="emission_factor_audit.csv", folder="03_Cleaned_data", path="data/ef_diagnostic.csv",
+    dict(file="emission_factor_audit.csv", folder="03_Cleaned_data", path="cleaned_data/emission_factor_audit.csv",
          title="Emission-factor audit",
          about="Each valid implied emission factor, 1970–2024, compared with the IPCC 2006 default range "
                "(95% interval bounds of Vol. 2, Ch. 1, Table 1.4, converted from kg CO₂/TJ by × 3.6 × 10⁻⁶). "
@@ -148,7 +148,7 @@ json.dump(out, open("results/data_dictionary.json", "w"), indent=1, ensure_ascii
 
 # Markdown version for the code repository. Paths are the ones the code uses; the submission package renames a few files.
 md = ["# Data dictionary", "",
-      "Every column of the cleaned data (`data/`) and of the projection files (`results/projections_*.csv`). "
+      "Every column of the cleaned data (`cleaned_data/`) and of the projection files (`results/projections_*.csv`). "
       "Files are comma-separated, UTF-8, with one header row; a blank cell is a missing value. Ranges and missing "
       "counts are computed from the files by `src/make_data_dictionary.py`.", "",
       "Units: CO₂ in million tonnes per year (Mt CO₂ yr⁻¹); energy in terawatt-hours per year (TWh yr⁻¹); emission "
